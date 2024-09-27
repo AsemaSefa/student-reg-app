@@ -13,7 +13,8 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        //
+        $applications = Application::all();
+        return view('applications.index', compact('applications'));
     }
 
     /**
@@ -21,7 +22,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('applications.create');
     }
 
     /**
@@ -29,7 +30,17 @@ class ApplicationController extends Controller
      */
     public function store(StoreApplicationRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public');
+
+            $validatedData['photo'] = $photoPath;
+        }
+
+        Application::create($validatedData);
+
+        return redirect()->route('welcome')->with('message', 'application recorded successfully');
     }
 
     /**
@@ -37,7 +48,7 @@ class ApplicationController extends Controller
      */
     public function show(Application $application)
     {
-        //
+        return view('applications.show', compact('application'));
     }
 
     /**
@@ -45,7 +56,7 @@ class ApplicationController extends Controller
      */
     public function edit(Application $application)
     {
-        //
+        return view('applications.edit', compact('application'));
     }
 
     /**
@@ -53,7 +64,17 @@ class ApplicationController extends Controller
      */
     public function update(UpdateApplicationRequest $request, Application $application)
     {
-        //
+        $validatedData = $request->validated();
+
+        if ($request->hasFile('photo')) {
+            $photoPath = $request->file('photo')->store('photos', 'public');
+
+            $validatedData['photo'] = $photoPath;
+        }
+
+        $application->update($validatedData);
+
+        return redirect()->back()->with('message', 'application updated successfully');
     }
 
     /**
@@ -61,6 +82,8 @@ class ApplicationController extends Controller
      */
     public function destroy(Application $application)
     {
-        //
+        $application->delete();
+        return redirect()->back()->with('message', 'application removed successfully');
+
     }
 }
