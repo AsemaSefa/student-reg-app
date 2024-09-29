@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
+             $table->string('first_name');
+             $table->string('sur_name');
+             $table->string('middle_name');
+             $table->string('address');
+             $table->string('primary_phone');
+             $table->string('alternate_phone');
+             $table->string('email');
+             $table->string('nin');
+             $table->date('birth_date');
+             $table->string('marital_status');
+             $table->string('address');
             $table->timestamps();
         });
     }
