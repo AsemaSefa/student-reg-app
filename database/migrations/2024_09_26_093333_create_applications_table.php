@@ -13,18 +13,36 @@ return new class extends Migration
     {
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
-             $table->string('first_name');
-             $table->string('sur_name');
-             $table->string('middle_name');
-             $table->string('address');
-             $table->string('primary_phone');
-             $table->string('alternate_phone');
-             $table->string('email');
-             $table->string('nin');
-             $table->date('birth_date');
-             $table->string('marital_status');
-             $table->string('address');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('middle_name');
+            $table->string('address');
+            $table->string('primary_phone');
+            $table->string('alternate_phone');
+            $table->string('email');
+            $table->string('nin');
+            $table->date('birth_date');
+            $table->string('marital_status');
+            $table->string('emergency_contact_name');
+            $table->string('emergency_contact_address');
+            $table->string('emergency_contact_primary_phone');
+            $table->string('emergency_contact_alternate_phone');
+            $table->string('relationship');
+            $table->string('package');
+            $table->file('passport');
+            $table->string('duration');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('certificate_in_view');
+            $table->string('requirement');
+
             $table->timestamps();
+            //official use
+            $table->string('student_id');
+            $table->string('supervisor');
+            $table->date('terminal_date');
+            $table->string('designation');
+            $table->string('ceo_remarks');
         });
     }
 
