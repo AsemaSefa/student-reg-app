@@ -24,7 +24,7 @@ class ApplicationController extends Controller
      */
     public function create()
     {
-        return view('registration');
+        return view('applications.create');
     }
 
     /**
@@ -86,6 +86,5 @@ class ApplicationController extends Controller
     {
         $application->delete();
         return redirect()->back()->with('message', 'application removed successfully');
-
     }
 }
