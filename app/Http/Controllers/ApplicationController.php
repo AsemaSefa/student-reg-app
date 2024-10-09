@@ -6,6 +6,8 @@ use App\Models\Application;
 use App\Http\Requests\StoreApplicationRequest;
 use App\Http\Requests\UpdateApplicationRequest;
 
+use function Termwind\render;
+
 class ApplicationController extends Controller
 {
     /**
@@ -84,6 +86,5 @@ class ApplicationController extends Controller
     {
         $application->delete();
         return redirect()->back()->with('message', 'application removed successfully');
-
     }
 }
