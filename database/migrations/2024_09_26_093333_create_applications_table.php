@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('emergency_contact_alternate_phone');
             $table->string('relationship');
             $table->string('package');
-            $table->file('passport');
+            $table->string('passport');
             $table->string('duration');
             $table->date('start_date');
             $table->date('end_date');
