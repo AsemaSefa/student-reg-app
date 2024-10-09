@@ -32,8 +32,9 @@ class ApplicationController extends Controller
      */
     public function store(StoreApplicationRequest $request)
     {
+        dd($request);
         $validatedData = $request->validated();
-
+        
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('photos', 'public');
 

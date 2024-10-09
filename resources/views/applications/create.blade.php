@@ -9,7 +9,10 @@
 <body>
     <div class="container mt-5">
         <h2>Registration Form</h2>
-        <form>
+        <form action={{route('applications.store')}} method="POST">
+            @csrf
+            @method('POST')
+            
             <div class="mb-3">
                 <label for="first_name" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="first_name" name="first_name" required>

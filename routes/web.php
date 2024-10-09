@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/registration', [ApplicationController::class, 'create']);
+Route::resource('applications', ApplicationController::class)->names('applications');
