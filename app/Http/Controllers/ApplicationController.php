@@ -33,7 +33,7 @@ class ApplicationController extends Controller
     public function store(StoreApplicationRequest $request)
     {
         $validatedData = $request->validated();
-        
+
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('photos', 'public');
 
@@ -43,7 +43,7 @@ class ApplicationController extends Controller
         // Official use fields
         $validatedData['student_id'] = 'nil';
         $validatedData['supervisor'] = 'nil';
-        $validatedData['terminal_date'] = 'nil';
+        $validatedData['terminal_date'] = ' 2024-10-23 14:27:42';
         $validatedData['designation'] = 'nil';
         $validatedData['ceo_remarks'] = 'nil';
 
