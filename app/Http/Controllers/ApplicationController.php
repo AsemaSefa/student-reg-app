@@ -32,7 +32,6 @@ class ApplicationController extends Controller
      */
     public function store(StoreApplicationRequest $request)
     {
-        dd($request);
         $validatedData = $request->validated();
         
         if ($request->hasFile('photo')) {
@@ -41,8 +40,14 @@ class ApplicationController extends Controller
             $validatedData['photo'] = $photoPath;
         }
 
-        Application::create($validatedData);
+        // Official use fields
+        $validatedData['student_id'] = 'nil';
+        $validatedData['supervisor'] = 'nil';
+        $validatedData['terminal_date'] = 'nil';
+        $validatedData['designation'] = 'nil';
+        $validatedData['ceo_remarks'] = 'nil';
 
+        $application = Application::create($validatedData);
         return redirect()->route('welcome')->with('message', 'application recorded successfully');
     }
 
