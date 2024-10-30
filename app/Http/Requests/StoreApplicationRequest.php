@@ -38,7 +38,7 @@ class StoreApplicationRequest extends FormRequest
             'emergency_contact_alternate_phone' => 'nullable|string|max:15',
             'relationship' => 'required|string|max:100',
             'package' => 'required|string|max:255',
-            'passport' => 'nullable|string|max:255',
+            'passport' => 'required|file|image|mimes:jpeg,jpg,png|max:2048',
             'duration' => 'required|string|max:100',
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',

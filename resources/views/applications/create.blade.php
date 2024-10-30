@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h2>Registration Form</h2>
-        <form action={{route('applications.store')}} method="POST">
+        <form action={{route('applications.store')}} method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             
