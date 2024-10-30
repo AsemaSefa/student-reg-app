@@ -34,10 +34,10 @@ class ApplicationController extends Controller
     {
         $validatedData = $request->validated();
 
-        if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('photos', 'public');
+        if ($request->hasFile('passport')) {
+            $passportPath = $request->file('passport')->store('passports', 'public');
 
-            $validatedData['photo'] = $photoPath;
+            $validatedData['passport'] = $passportPath;
         }
 
         // Official use fields
@@ -74,10 +74,10 @@ class ApplicationController extends Controller
     {
         $validatedData = $request->validated();
 
-        if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('photos', 'public');
+        if ($request->hasFile('passport')) {
+            $passportPath = $request->file('passport')->store('passports', 'public');
 
-            $validatedData['photo'] = $photoPath;
+            $validatedData['passport'] = $passportPath;
         }
 
         $application->update($validatedData);
