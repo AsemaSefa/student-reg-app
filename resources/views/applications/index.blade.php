@@ -1,83 +1,85 @@
-@extends('layouts.app')
+<x-layout>
+    <div class="container mt-4">
+        <h1 class="mb-4 ">Students List</h1>
 
-@section('content')
-<div class="container mt-4">
-    <h1 class="mb-4">Students List</h1>
-    
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Middle Name</th>
-                <th>Address</th>
-                <th>Primary Phone</th>
-                <th>Alternate Phone</th>
-                <th>Email</th>
-                <th>NIN</th>
-                <th>Birth Date</th>
-                <th>Marital Status</th>
-                <th>Emergency Contact Name</th>
-                <th>Emergency Contact Address</th>
-                <th>Emergency Contact Primary Phone</th>
-                <th>Emergency Contact Alternate Phone</th>
-                <th>Relationship</th>
-                <th>Package</th>
-                <th>Passport</th>
-                <th>Duration</th>
-                <th>Start Date</th>
-                <th>End Date</th>
-                <th>Certificate in View</th>
-                <th>Requirement</th>
-
-                <!-- Official use -->
-                <th>Student ID</th>
-                <th>Supervisor</th>
-                <th>Terminal Date</th>
-                <th>Designation</th>
-                <th>CEO Remarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($students as $student)
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>
                 <tr>
-                    <td>{{ $student->first_name }}</td>
-                    <td>{{ $student->last_name }}</td>
-                    <td>{{ $student->middle_name }}</td>
-                    <td>{{ $student->address }}</td>
-                    <td>{{ $student->primary_phone }}</td>
-                    <td>{{ $student->alternate_phone }}</td>
-                    <td>{{ $student->email }}</td>
-                    <td>{{ $student->nin }}</td>
-                    <td>{{ $student->birth_date }}</td>
-                    <td>{{ $student->marital_status }}</td>
-                    <td>{{ $student->emergency_contact_name }}</td>
-                    <td>{{ $student->emergency_contact_address }}</td>
-                    <td>{{ $student->emergency_contact_primary_phone }}</td>
-                    <td>{{ $student->emergency_contact_alternate_phone }}</td>
-                    <td>{{ $student->relationship }}</td>
-                    <td>{{ $student->package }}</td>
-                    <td>{{ $student->passport }}</td>
-                    <td>{{ $student->duration }}</td>
-                    <td>{{ $student->start_date }}</td>
-                    <td>{{ $student->end_date }}</td>
-                    <td>{{ $student->certificate_in_view }}</td>
-                    <td>{{ $student->requirement }}</td>
+                    <th>Passport</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Middle Name</th>
+                    <th>Address</th>
+                    <th>Primary Phone</th>
+                    <th>Alternate Phone</th>
+                    <th>Email</th>
+                    <th>NIN</th>
+                    <th>Birth Date</th>
+                    <th>Marital Status</th>
+                    <th>Emergency Contact Name</th>
+                    <th>Emergency Contact Address</th>
+                    <th>Emergency Contact Primary Phone</th>
+                    <th>Emergency Contact Alternate Phone</th>
+                    <th>Relationship</th>
+                    <th>Package</th>
+
+                    <th>Duration</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Certificate in View</th>
+                    <th>Requirement</th>
 
                     <!-- Official use -->
-                    <td>{{ $student->student_id }}</td>
-                    <td>{{ $student->supervisor }}</td>
-                    <td>{{ $student->terminal_date }}</td>
-                    <td>{{ $student->designation }}</td>
-                    <td>{{ $student->ceo_remarks }}</td>
+                    <th>Student ID</th>
+                    <th>Supervisor</th>
+                    <th>Terminal Date</th>
+                    <th>Designation</th>
+                    <th>CEO Remarks</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($applications as $application)
+                    <tr>
+                        <td><img class="img-thumbnail img-responsive"
+                                src="{{ $application->passport ? asset('storage/' . $application->passport) : asset('images/defaultdp.jpeg') }}"
+                                alt=""></td>
+                        <td>{{ $application->first_name }}</td>
+                        <td>{{ $application->last_name }}</td>
+                        <td>{{ $application->middle_name }}</td>
+                        <td>{{ $application->address }}</td>
+                        <td>{{ $application->primary_phone }}</td>
+                        <td>{{ $application->alternate_phone }}</td>
+                        <td>{{ $application->email }}</td>
+                        <td>{{ $application->nin }}</td>
+                        <td>{{ $application->birth_date }}</td>
+                        <td>{{ $application->marital_status }}</td>
+                        <td>{{ $application->emergency_contact_name }}</td>
+                        <td>{{ $application->emergency_contact_address }}</td>
+                        <td>{{ $application->emergency_contact_primary_phone }}</td>
+                        <td>{{ $application->emergency_contact_alternate_phone }}</td>
+                        <td>{{ $application->relationship }}</td>
+                        <td>{{ $application->package }}</td>
 
-    <!-- Pagination links -->
-    <div class="d-flex justify-content-center">
-        {{ $students->links('pagination::bootstrap-5') }}
+                        <td>{{ $application->duration }}</td>
+                        <td>{{ $application->start_date }}</td>
+                        <td>{{ $application->end_date }}</td>
+                        <td>{{ $application->certificate_in_view }}</td>
+                        <td>{{ $application->requirement }}</td>
+
+                        <!-- Official use -->
+                        <td>{{ $application->student_id }}</td>
+                        <td>{{ $application->supervisor }}</td>
+                        <td>{{ $application->terminal_date }}</td>
+                        <td>{{ $application->designation }}</td>
+                        <td>{{ $application->ceo_remarks }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <!-- Pagination links -->
+        <div class="d-flex justify-content-center">
+            {{ $applications->links('pagination::bootstrap-5') }}
+        </div>
     </div>
-</div>
-@endsection
+</x-layout>
