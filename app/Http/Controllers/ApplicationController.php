@@ -48,7 +48,7 @@ class ApplicationController extends Controller
         $validatedData['ceo_remarks'] = 'nil';
 
         $application = Application::create($validatedData);
-        return redirect()->route('welcome')->with('message', 'application recorded successfully');
+        return redirect()->route('applications.index')->with('message', 'application recorded successfully');
     }
 
     /**

@@ -2,9 +2,11 @@
     <div class="container mt-4">
         <h1 class="mb-4 ">Students List</h1>
 
-        <table class="table table-striped table-bordered table-responsive">
+       <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Passport</th>
                     <th>First Name</th>
                     <th>Last Name</th>
@@ -40,6 +42,7 @@
             <tbody>
                 @foreach ($applications as $application)
                     <tr>
+                        <td>{{ $application->id }}</td>
                         <td><img class="img-thumbnail img-responsive"
                                 src="{{ $application->passport ? asset('storage/' . $application->passport) : asset('images/defaultdp.jpeg') }}"
                                 alt=""></td>
@@ -76,10 +79,11 @@
                 @endforeach
             </tbody>
         </table>
+       </div>
 
         <!-- Pagination links -->
         <div class="d-flex justify-content-center">
-            {{ $applications->links('pagination::bootstrap-5') }}
+            {{ $applications->links() }}
         </div>
     </div>
 </x-layout>
