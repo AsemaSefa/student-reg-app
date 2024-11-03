@@ -43,7 +43,7 @@
                 @foreach ($applications as $application)
                     <tr>
                         <td>{{ $application->id }}</td>
-                        <td><img class="img-thumbnail img-responsive"
+                        <td><img class="img-thumbnail img-responsive rounded-circle"
                                 src="{{ $application->passport ? asset('storage/' . $application->passport) : asset('images/defaultdp.jpeg') }}"
                                 alt=""></td>
                         <td>{{ $application->first_name }}</td>

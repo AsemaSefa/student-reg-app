@@ -35,14 +35,14 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('certificate_in_view');
             $table->string('requirement');
-
-            $table->timestamps();
             //official use
             $table->string('student_id');
             $table->string('supervisor');
             $table->date('terminal_date');
             $table->string('designation');
             $table->string('ceo_remarks');
+
+            $table->timestamps();
         });
     }
 

@@ -73,7 +73,7 @@ class ApplicationController extends Controller
     public function update(UpdateApplicationRequest $request, Application $application)
     {
         $validatedData = $request->validated();
-
+           
         if ($request->hasFile('passport')) {
             $passportPath = $request->file('passport')->store('passports', 'public');
 
