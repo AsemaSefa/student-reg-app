@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use function Termwind\render;
+use Illuminate\Support\Facades\Log;
+
 use App\Http\Requests\StoreApplicationRequest;
 use App\Http\Requests\UpdateApplicationRequest;
-
-use function Termwind\render;
 
 class ApplicationController extends Controller
 {
@@ -73,7 +74,7 @@ class ApplicationController extends Controller
     public function update(UpdateApplicationRequest $request, Application $application)
     {
         $validatedData = $request->validated();
-           
+        Log::info('Validated Data:', $validatedData);
         if ($request->hasFile('passport')) {
             $passportPath = $request->file('passport')->store('passports', 'public');
 
