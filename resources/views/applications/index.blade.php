@@ -37,6 +37,7 @@
                         <th>Terminal Date</th>
                         <th>Designation</th>
                         <th>CEO Remarks</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,6 +82,14 @@
                             <td>{{ $application->terminal_date }}</td>
                             <td>{{ $application->designation }}</td>
                             <td>{{ $application->ceo_remarks }}</td>
+                            <td>
+                                <a href="{{ route('applications.show', $application->id) }}" class="btn btn-primary btn-sm me-2">view</a>
+                                <form action="{{ route('applications.destroy', $application->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button onclick="return confirm('Are you sure you want to delete this application?')" class="btn btn-danger btn-sm me-2">delete</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
