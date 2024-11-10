@@ -83,11 +83,14 @@
                             <td>{{ $application->designation }}</td>
                             <td>{{ $application->ceo_remarks }}</td>
                             <td>
-                                <a href="{{ route('applications.show', $application->id) }}" class="btn btn-primary btn-sm me-2">view</a>
+                                <a href="{{ route('applications.show', $application->id) }}"
+                                    class="btn btn-primary btn-sm me-2">view</a>
                                 <form action="{{ route('applications.destroy', $application->id) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button onclick="return confirm('Are you sure you want to delete this application?')" class="btn btn-danger btn-sm me-2">delete</button>
+                                    <button
+                                        onclick="return confirm('Are you sure you want to delete this application?')"
+                                        class="btn btn-danger btn-sm me-2">delete</button>
                                 </form>
                             </td>
                         </tr>
@@ -97,8 +100,14 @@
         </div>
 
         <!-- Pagination links -->
-        <div class="d-flex justify-content-center">
+        {{-- <div class="d-flex justify-content-center h-25">
             {{ $applications->links() }}
-        </div>
+        </div> --}}
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+               <li> {{ $applications->links() }}</li>
+            </ul>
+        </nav>
+
     </div>
 </x-layout>
