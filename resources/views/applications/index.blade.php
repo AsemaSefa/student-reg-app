@@ -1,4 +1,8 @@
 <x-layout>
+    <form action="/applications" class="d-flex justify-center" role="search">
+        <input class="form-control me-2 w-25" type="search" name="search" placeholder="Search for student" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
     <div class="container mt-4">
         <h1 class="mb-4 ">Students List</h1>
 
@@ -49,7 +53,7 @@
                             <td>{{ $application->id }}</td>
 
                             <td><a href="applications/{{ $application->id }}"><img
-                                        class="img-thumbnail img-responsive rounded-circle"
+                                        class="img-thumbnail img-responsive img-rounded"
                                         src="{{ $application->passport ? asset('storage/' . $application->passport) : asset('images/defaultdp.jpeg') }}"
                                         alt="passport thumbnail."></a></td>
 
@@ -105,7 +109,7 @@
         </div> --}}
         <nav aria-label="Page navigation">
             <ul class="pagination">
-               <li> {{ $applications->links() }}</li>
+                <li> {{ $applications->links() }}</li>
             </ul>
         </nav>
 
