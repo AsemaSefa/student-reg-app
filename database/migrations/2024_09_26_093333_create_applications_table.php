@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('address');
             $table->string('primary_phone');
-            $table->string('alternate_phone');
+            $table->string('alternate_phone')->nullable();
             $table->string('email');
             $table->string('nin');
             $table->date('birth_date');
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('emergency_contact_name');
             $table->string('emergency_contact_address');
             $table->string('emergency_contact_primary_phone');
-            $table->string('emergency_contact_alternate_phone');
+            $table->string('emergency_contact_alternate_phone')->nullable();
             $table->string('relationship');
             $table->string('package');
             $table->string('passport');
