@@ -12,14 +12,14 @@
                             @method('POST')
                             <div class="mb-4">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" id="email" name="email" />
+                                <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }} />
                                 @if ($errors->has('email'))
                                     <div class="text-danger">{{ $errors->first('email') }}</div>
                                 @endif
                             </div>
                             <div class="mb-4">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" />
+                                <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}/>
                                 @if ($errors->has('password'))
                                     <div class="text-danger">{{ $errors->first('password') }}</div>
                                 @endif

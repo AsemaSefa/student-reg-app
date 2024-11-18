@@ -1,0 +1,26 @@
+/* .btn-primary{
+    background-color: aliceblue;
+    color: black;
+} */
+
+.hero{
+    background-color: black;
+    background-image: url("{{asset ('images/defaultdp.jpeg')}}");
+    background-position: center;
+    background-size: cover;
+ text-align: center;
+    height: 50vh;
+    padding: 2em;
+    color: white;
+    line-height: 2;
+}
+.hero h2{
+    text-align: center;
+    font-size: 3em;
+    text-transform: capitalize;
+}
+.hero a{
+   
+    
+
+}
