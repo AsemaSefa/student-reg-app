@@ -37,7 +37,16 @@
                 font-size: 0.9em;
             }
         </style>
-        <a href="/applications/{{$application->id}}/edit" class="btn btn-primary ">edit</a>
+       <div class="row w-25">
+         <a href="/applications/{{$application->id}}/edit" class="btn btn-primary col-6 btn-sm">edit</a>
+          <form action="{{ route('applications.destroy', $application->id) }}" method="post" class="col-6">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button
+                                        onclick="return confirm('Are you sure you want to delete this application?')"
+                                        class="btn btn-danger btn-sm me-2 mt-2 ">delete</button>
+                                </form>
+       </div>
         <div class="id-card mx-auto mb-5 px-5">
             <div class="id-card-header">Student ID Card</div>
 
